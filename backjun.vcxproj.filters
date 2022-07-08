@@ -14,4 +14,36 @@
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="1003.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="1012.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="1024.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="1052.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="1074.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="1105.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="1149.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="1463.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="1620.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="3013.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+  </ItemGroup>
 </Project>
