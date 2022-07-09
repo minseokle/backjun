@@ -1,50 +1,35 @@
-//uncomplete
+//complete
 #include<stdio.h>
 #include<stdlib.h>
+#define min(a,b) ((a<b)?a:b)
+
+typedef struct
+{
+	int cost[3];
+	int lowcost[3];
+}home;
 
 int main()
 {
-	int n;
-	scanf_s("%d", &n);
-	int** cos = (int**)malloc(sizeof(int*) * 3);
-	cos[0] = (int*)malloc(sizeof(int) * 3 * n);
-	for (int i = 1; i < 3; i++)
+	int num;
+	scanf_s("%d", &num);
+	home* ho = (home*)malloc(sizeof(home) * num);
+	for (int i = 0; i < num; i++)
 	{
-		cos[i] = cos[i - 1] + n;
+		scanf_s("%d %d %d", &ho[i].cost[0], &ho[i].cost[1], &ho[i].cost[2]);
 	}
-	int** lowcos = (int**)malloc(sizeof(int*) * 2);
-	lowcos[0] = (int*)malloc(sizeof(int) * 2 * n);
-	for (int i = 1; i < 2; i++)
+	for (int i = 0; i < 3; i++)
 	{
-		cos[i] = cos[i - 1] + n;
+		ho[0].lowcost[i] = ho[0].cost[i];
 	}
-	for (int i = 0; i < n; i++)
+	for (int i = 1; i < num; i++)
 	{
-		scanf_s("%d %d %d", &cos[0][i], &cos[1][i], &cos[2][i]);
-		lowcos[0][i] = cos[0][i];
-		lowcos[1][i] = 0;
-		for (int j = 1; j < n; j++)
-		{
-			if (lowcos[0][i] > cos[j][i])
-			{
-				lowcos[0][i] = cos[j][i];
-				lowcos[1][i] = j;
-			}
-		}
+		ho[i].lowcost[0] = min(ho[i - 1].lowcost[1], ho[i - 1].lowcost[2]) + ho[i].cost[0];
+		ho[i].lowcost[1] = min(ho[i - 1].lowcost[2], ho[i - 1].lowcost[0]) + ho[i].cost[1];
+		ho[i].lowcost[2] = min(ho[i - 1].lowcost[0], ho[i - 1].lowcost[1]) + ho[i].cost[2];
 	}
-	if (lowcos[1][0] == lowcos[1][1])
-	{
-		switch (lowcos[1][0])
-		{
-		case 1:
+	printf("%d", min(ho[num - 1].lowcost[0], min(ho[num - 1].lowcost[1], ho[num - 1].lowcost[2])));
+	return 0;
 
-		}
-	}
-	for (int i = 1; i < n - 2; i++)
-	{
-		if (lowcos[1][i] == lowcos[1][i + 1])
-		{
-
-		}
-	}
 }
+
