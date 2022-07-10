@@ -2,109 +2,122 @@
 #include<stdio.h>
 #include<stdlib.h>
 
+
+typedef struct NODE
+{
+	char name[21];
+	int num;
+	struct NODE* low;
+	struct NODE* high;
+}NODE;
+
+NODE* tree_insert(NODE** node, char name[21], int num);
+NODE* tree_search(NODE* node, char name[21]);
+
+int myStrCmp(const char* str1, const char* str2);
+
 int main()
 {
 	int n, m;
 	scanf_s("%d %d", &n, &m);
+	NODE* start = NULL;
 	char** name = (char**)malloc(sizeof(char*) * n);
 	name[0] = (char*)malloc(sizeof(char) * n * 21);
 	for (int i = 1; i < n; i++)
 	{
 		name[i] = name[i - 1] + 21;
 	}
-	int* seq = (int*)malloc(sizeof(int) * n);
-	int index[26] = { 0, };
 	for (int i = 0; i < n; i++)
 	{
-		scanf_s("%s", name[i], 20);
-		int al;
-		if (name[i][0] <= 'z' && name[i][0] >= 'a')
-		{
-			al = name[i][0] - 'a';
-		}
-		if (name[i][0] <= 'Z' && name[i][0] >= 'A')
-		{
-			al = name[i][0] - 'A';
-		}
-		for (int j = al+1; j < 26; j++)
-		{
-			index[j]++;
-		}
-		for (int j = n - 1; j >= index[al + 1]; j--)
-		{
-			seq[j] = seq[j - 1];
-		}
-		seq[index[al + 1] - 1] = i;
+		scanf_s("%s", name[i],21);
+		tree_insert(&start, name[i],i+1);
 	}
-	int** asw = (int**)malloc(sizeof(int*) * m);
-	asw[0] = (int*)malloc(sizeof(int) * m * 2);
+	char** qu = (char**)malloc(sizeof(char*) * m);
+	qu[0] = (char*)malloc(sizeof(char) * m * 21);
 	for (int i = 1; i < m; i++)
 	{
-		asw[i] = asw[i - 1] + 2;
+		qu[i] = qu[i - 1] + 21;
+	}
+	for (int i = 0; i < m; i++ )
+	{
+		scanf_s("%s", qu[i], 21);
 	}
 	for (int i = 0; i < m; i++)
 	{
-		char qu[21];
-		scanf_s("%s", qu, 20);
-		if (qu[0] <= '9' && qu[0] >= '0')
+		if (qu[i][0] >= '0' && qu[i][0] <= '9')
 		{
-			asw[i][0] = 0;
 			int num = 0;
-			for (int j = 0; qu[j] != NULL; j++)
+			for (int j = 0; qu[i][j] != NULL; j++)
 			{
-				num = num * 10 + qu[j] - 48;
+				num = num * 10 + qu[i][j] - 48;
 			}
-			asw[i][1] = num - 1;
+			printf("%s\n", name[num-1]);
 		}
 		else
 		{
-			asw[i][0] = 1;
-			int num = -1;
-			int j = 0;
-			int al;
-			if (qu[0] <= 'z' && qu[0] >= 'a')
-			{
-				al = qu[0] - 'a';
-			}
-			if (qu[0] <= 'Z' && qu[0] >= 'A')
-			{
-				al = qu[0] - 'A';
-			}
-			while (num == -1)
-			{
-				int k;
-				for (k = 0; qu[k] != NULL || name[seq[index[al] + j]][k] != NULL; k++)
-				{
-					if (qu[k] != name[seq[index[al] + j]][k])
-					{
-						break;
-					}
-				}
-				if (qu[k] == NULL)
-				{
-					num = seq[index[al] + j];
-				}
-				j++;
-			}
-			asw[i][1] = num + 1;
+			NODE* ans = tree_search(start, qu[i]);
+			printf("%d\n", ans->num);
 		}
+	}
+}
 
-	}
-	for (int i = 0; i < m; i++)
+NODE* tree_insert(NODE** node, char name[21], int num)
+{
+	if (*node == NULL)
 	{
-		if (asw[i][0] == 0)
+		*node = (NODE*)malloc(sizeof(NODE));
+		for (int i = 0; name[i-1]!=NULL; i++)
 		{
-			printf("%s\n", name[asw[i][1]]);
+			(*node)->name[i] = name[i];
 		}
-		else
-		{
-			printf("%d\n", asw[i][1]);
-		}
+		(*node)->num = num;
+		(*node)->high = NULL;
+		(*node)->low = NULL;
 	}
-	free(name[0]);
-	free(name);
-	free(asw[0]);
-	free(asw);
-	free(seq);
+	else if (myStrCmp((*node)->name, name) == -1)
+	{
+		(*node)->high = tree_insert(&(*node)->high, name,num);
+	}
+	else if (myStrCmp((*node)->name, name) == 1)
+	{
+		(*node)->low = tree_insert(&(*node)->low, name,num);
+	}
+	else
+	{
+		printf("fail");
+	}
+	return (*node);
+}
+NODE* tree_search(NODE* node, char name[21])
+{
+	if (myStrCmp(node->name, name) == 0)
+	{
+		return node;
+	}
+	else if (myStrCmp(node->name, name) == -1)
+	{
+		return tree_search(node->high, name);
+	}
+	else if (myStrCmp(node->name, name) == 1)
+	{
+		return tree_search(node->low, name);
+	}
 	return 0;
 }
+
+int myStrCmp(const char* str1, const char* str2)
+{
+	for (int i = 0; !(str1[i] == NULL && str2[i] == NULL); i++)
+	{
+		if (str1[i] < str2[i])
+		{
+			return -1;
+		}
+		else if (str1[i] > str2[i])
+		{
+			return 1;
+		}
+	}
+	return 0;
+}
+
