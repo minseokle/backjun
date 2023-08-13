@@ -1,7 +1,7 @@
 //complete
 #include<stdio.h>
 
-int main()
+int main_1024()
 {
 	int n, l;
 	scanf_s("%d %d", &n, &l);

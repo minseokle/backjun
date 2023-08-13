@@ -2,7 +2,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-void main()
+void main_3013()
 {
 	int n, b, num = 0;
 	scanf_s("%d %d", &n, &b);

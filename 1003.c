@@ -2,14 +2,14 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-int main()
+int main_1003()
 {
 	int n;
-	scanf_s("%d", &n);
+	scanf("%d", &n);
 	int* num = (int*)malloc(sizeof(int) * n);
 	for (int i = 0; i < n; i++)
 	{
-		scanf_s("%d", &num[i]);
+		scanf("%d", &num[i]);
 	}
 	for (int i = 0; i < n; i++)
 	{

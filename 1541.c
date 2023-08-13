@@ -1,6 +1,7 @@
+//complate
 #include<stdio.h>
 
-int main()
+int main_1541()
 {
 	char formula[51];
 	scanf_s("%s", formula, 50);

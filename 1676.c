@@ -1,6 +1,6 @@
 #include<stdio.h>
 
-int main()
+int main_1676()
 {
 	int num;
 	scanf_s("%d", &num);

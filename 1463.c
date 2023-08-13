@@ -1,9 +1,8 @@
 //complete
 #include<stdio.h>
 #include<stdlib.h>
-#define min(a,b) ((a<b)?a:b)
 
-int main()
+int main_1463()
 {
 	int num;
 	scanf_s("%d", &num);
@@ -22,7 +21,7 @@ int main()
 		printf("1");
 		return 0;
 	}
-	int* cnt = (int*)malloc(sizeof(int) * (num + 1));	// ¾î¶²¼ýÀÚ°¡ 1ÀÌ µÉ¶§ ±îÁö °É¸®´Â ÃÖ¼Ò È½¼ö ÀúÀå
+	int* cnt = (int*)malloc(sizeof(int) * (num + 1));	// ï¿½î¶²ï¿½ï¿½ï¿½Ú°ï¿½ 1ï¿½ï¿½ ï¿½É¶ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½É¸ï¿½ï¿½ï¿½ ï¿½Ö¼ï¿½ È½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	if (cnt == NULL)
 		return 0;
 	cnt[1] = 0;
@@ -30,7 +29,7 @@ int main()
 	cnt[3] = 1;
 	for (int i = 4; i <= num; i++)
 	{
-		cnt[i] = cnt[i - 1] + 1;					//¿¬»êÀ» ÇÑ¹ø ÇÏ¸é ¿¬»êÇÑ °ª¿¡ È½¼ö +1
+		cnt[i] = cnt[i - 1] + 1;					//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ¹ï¿½ ï¿½Ï¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ È½ï¿½ï¿½ +1
 		if (i % 3 == 0)
 		{
 			cnt[i] = min(cnt[i / 3] + 1, cnt[i]);	

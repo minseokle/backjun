@@ -1,7 +1,7 @@
 //complete
 #include<stdio.h>
 
-int main()
+int main_1105()
 {
 	int l, r;
 	int el[11] = { 0, }, er[11] = { 0, };

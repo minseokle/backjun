@@ -6,7 +6,7 @@
 int sq(int a, int b);
 int squ(int a, int b);
 
-int main()
+int main_1074()
 {
 	int n, r, c;
 	int arr1[2][2] = { 0,1,2,3 };

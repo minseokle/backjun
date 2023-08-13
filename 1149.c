@@ -9,7 +9,7 @@ typedef struct
 	int lowcost[3];
 }home;
 
-int main()
+int main_1149()
 {
 	int num;
 	scanf_s("%d", &num);
