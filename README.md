@@ -1,43 +1,22 @@
-Backjune solution
-==================
+#Backjune solution 
+####made by : Min Seok Lee
+---
 
-2023/6/21
------------
-try : 1620
+<details>
+    <summary>1012</summary>
+    <h6>solve 2022/7/7</h6>
+    <p>dfs를 통하여 하나의 점에서 이동가능한 모든곳을 탐색한뒤 다시 탐색 안 된 지점을 찾아 계속 탐색</p>
+</details>
 
-2022/7/13
-------------
-solve: 1676, 1541
+<details>
+    <summary>1463</summary>
+    <h6>solve 2022/7/9</h6>
+    <p></p>
+    <p>참고자료 :https://blog.naver.com/fblod/222803303080</p>
+</details>
 
-2022/7/11
---------
-try: 1620(자가균형 이중탐색트리적용)
-
-2022/7/10
-----------
-try: 1620(이중탐색트리적용)
-
-2022/7/9
-----------
-solve : 1149 ,1463
-
-2022/7/8
---------
-try : 1620
-
-2022/7/7
-------
-solve : 1003, 1012, 1024, 1052, 1074, 1105, 3013
-
-try : 1149, 1463, 1620
-
-참고자료
---------------
-1149: https://seungjuitmemo.tistory.com/29
-
-1463: https://blog.naver.com/fblod/222803303080
-
-1620: https://foxtrotin.tistory.com/191
-
-
-
+<details>
+    <summary>1620</summary>
+    <h6>solve 2023/08/13</h6>
+    <p>map을 통하여 글자로 숫자 찾는 시간복잡도를 log(n)으로 줄여서 해결</p>
+</details>
