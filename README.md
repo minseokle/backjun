@@ -1,6 +1,6 @@
-#Backjune solution 
+<h1>Backjune solution</h1> 
 
-####made by : Min Seok Lee
+<h4>made by : Min Seok Lee</h4>
 
 ---
 
