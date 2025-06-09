@@ -3,16 +3,16 @@
 
 int main_1024()
 {
-	int n, l;
-	scanf_s("%d %d", &n, &l);
-	if (l <= 100 && l > 0)
-	{
-		int s = -1, f = 101;
-		int ln = l;
-		for (int i; ln < 101; ln++)
-		{
-
-			if (!(n % ln == 0))
+        int n, l;
+        scanf("%d %d", &n, &l);
+        if (l <= 100 && l > 0)
+        {
+                int s = -1, f = 101;
+                int ln = l;
+                for (; ln < 101; ln++)
+                {
+                        int i;
+                        if (!(n % ln == 0))
 			{
 				if (ln % 2 == 0)
 				{
